@@ -7,6 +7,8 @@ using System.Dynamic;
 
 namespace SyntacticsugarCode
 {
+
+    public delegate string SomeDelegateValue(int value);
     class Myclass
     {
         public int Value
@@ -15,6 +17,12 @@ namespace SyntacticsugarCode
             get;
             set;
         }
+
+        public string process(int value)
+        {
+            return value.ToString();
+        }
+
     }
 
     class Program
@@ -57,7 +65,26 @@ namespace SyntacticsugarCode
             //Action<string> act = (str) => { Console.WriteLine(str); };
             //dynEO.say = act;
             //dynEO.say(dynEO.intValue.ToString());
-            //Console.ReadLine();
+
+            //Myclass obj = new Myclass();
+            //SomeDelegateValue del = obj.process;
+            //Console.WriteLine(del(100));
+
+            //SomeDelegateValue del = delegate(int value)
+            //{
+            //    return value.ToString();
+            //};
+            //Console.WriteLine(del(100));
+
+
+            //SomeDelegateValue del = (value)=> value.ToString();
+            
+            Func<int,string> del= (value)=> value.ToString();
+
+
+            Console.WriteLine(del(100));
+
+            Console.ReadLine();
         }
     }
 }
