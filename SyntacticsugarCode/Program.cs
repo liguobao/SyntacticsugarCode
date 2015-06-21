@@ -8,22 +8,22 @@ using System.Dynamic;
 namespace SyntacticsugarCode
 {
 
-    public delegate string SomeDelegateValue(int value);
-    class Myclass
-    {
-        public int Value
-        {
+   // public delegate string SomeDelegateValue(int value);
+    //class Myclass
+    //{
+    //    public int Value
+    //    {
 
-            get;
-            set;
-        }
+    //        get;
+    //        set;
+    //    }
 
-        public string process(int value)
-        {
-            return value.ToString();
-        }
+    //    public string process(int value)
+    //    {
+    //        return value.ToString();
+    //    }
 
-    }
+    //}
 
     class Program
     {
@@ -83,6 +83,16 @@ namespace SyntacticsugarCode
 
 
             Console.WriteLine(del(100));
+
+
+            Func<int, int, bool> delTest = (x, y) => x == y;
+            Console.WriteLine(delTest(1,2));
+
+            Action delAC = () =>
+            {
+                Console.WriteLine("test action");
+            };
+            delAC();
 
             Console.ReadLine();
         }
